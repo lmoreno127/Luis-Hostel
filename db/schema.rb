@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_171749) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.string "title"
     t.integer "stars"
     t.string "description"
     t.date "review_date"
@@ -27,7 +28,8 @@ ActiveRecord::Schema.define(version: 2019_07_08_171749) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "image"
+    #t.string "image"
+    t.string "title"
     t.string "description"
     t.float "price"
     t.boolean "is_booked"
@@ -35,12 +37,13 @@ ActiveRecord::Schema.define(version: 2019_07_08_171749) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "last_name"
     t.string "email"
     t.integer "cardnumber"
     t.string "namecard"
     t.date "expirationdate"
     t.integer "cvv"
-    t.string "profile_photo"
+    #t.string "profile_photo"
     t.boolean "is_admin"
   end
 
