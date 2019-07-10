@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_07_10_164724) do
     t.integer "room_id"
     t.date "check_in"
     t.date "check_out"
+    t.integer "guests"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_07_10_164724) do
     t.float "price"
     t.boolean "is_booked"
     t.string "image"
+    t.integer "max_guests"
   end
 
   create_table "users", force: :cascade do |t|

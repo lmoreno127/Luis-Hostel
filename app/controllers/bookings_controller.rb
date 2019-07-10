@@ -1,11 +1,20 @@
-class BookingController < ApplicationController
+class BookingsController < ApplicationController
     def new
+      @user=current_user
+      @room=Room.find(params[:room_id])
       @booking=Booking.new 
     end
     def create
-      Booking.create(booking_params)
+      @user=current_user
+      @room=Room.find(params[:room_id])
+      #@user.update()
+      new_booking=Booking.new(booking_params)
+      new_booking.user = @user
+      new_booking.room = @room
+      new_booking.save
       flash[:success] = "Booking was created successfully"
-      #redirect_to edit_booking 
+      @room.update(is_booked:true)
+      redirect_to root_path 
     end
     def index
      @bookings = Booking.all
@@ -35,7 +44,11 @@ class BookingController < ApplicationController
      @booking = Booking.find(id)
    end
    private
-   def room_params
-     params.require(:booking).permit(:check_in,:check_out)
+   def booking_params
+     params.require(:booking).permit(:guests,:check_in,:check_out)
    end
 end
+# Card Number: <%= f.text_field :cardnumber %><br />
+#   Name On Card: <%= f.text_field :namecard %><br />
+#   Expiration Date:<%= f.date_field :expirationdate %><br />
+#   CVV:<%= f.text_field :cvv %><br />

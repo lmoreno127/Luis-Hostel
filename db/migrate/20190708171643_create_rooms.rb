@@ -6,6 +6,7 @@ class CreateRooms < ActiveRecord::Migration[5.2]
       t.float  :price
       t.boolean :is_booked
       t.string :image
+      t.integer :max_guests
     end
   end
 end

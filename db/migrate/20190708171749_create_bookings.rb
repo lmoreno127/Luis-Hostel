@@ -5,6 +5,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.integer :room_id
       t.date    :check_in
       t.date    :check_out
+      t.integer :guests
     end
   end
 end

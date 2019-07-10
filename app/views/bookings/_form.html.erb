@@ -1,0 +1,7 @@
+<%= form_for [@room,@user,@booking] do |f| %>
+  Guests: <%= f.select(:guests, @room.max_guests.times.collect {|n| [n+1,n+1]}) %><br />
+
+  Check-In <%= f.date_field :check_in %><br />
+  Check-Out <%= f.date_field :check_out %><br />
+  <%= f.submit 'Book' %>
+<% end %>

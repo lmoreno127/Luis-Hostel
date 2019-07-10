@@ -2,6 +2,13 @@
 Title:<%=@room.title %></br>
 Description:<%=@room.description %></br>
 Price:<%=@room.price %></br>
+Max Guests:<%=@room.max_guests %></br>
 <%= link_to 'Edit Room', edit_room_path(@room) %> 
-<%= link_to 'Create Users', new_room_user_path(@room) %> 
 <%= link_to 'Show Users', room_users_path(@room) %> 
+<% if  user_signed_in? %>
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete %> 
+    <%= link_to 'Book', new_room_user_booking_path(@room,current_user) %>
+<% else %>
+    <%= link_to 'Sign Up', new_user_registration_path %> 
+    <%= link_to 'Sign In', user_session_path %>
+<% end  %>
