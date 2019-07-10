@@ -1,10 +1,11 @@
 class BookingController < ApplicationController
-    def new 
+    def new
+      @booking=Booking.new 
     end
     def create
       Booking.create(booking_params)
       flash[:success] = "Booking was created successfully"
-      #redirect_to edit_user 
+      #redirect_to edit_booking 
     end
     def index
      @bookings = Booking.all
@@ -13,7 +14,7 @@ class BookingController < ApplicationController
      id = params[:id]
      @booking = Review.find(id)
     end
-    def delete
+    def destroy
      id = params[:id]
      @booking = Booking.find(id)
      @booking.destroy
@@ -24,7 +25,7 @@ class BookingController < ApplicationController
      id = params[:id]
      @booking = Booking.find(id)
      @booking.update(booking_params)
-     @booking.user_id = params[:user_id]
+     @booking.booking_id = params[:booking_id]
 
      flash[:success] = 'booking was updated successfully'
      #redirect_to dog_edit_path(@dog)

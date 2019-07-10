@@ -1,0 +1,9 @@
+<%= form_for [@room,@user] do |form| %>
+  Name:<%= form.text_field :name %><br />
+  Last Name:<%= form.text_field :last_name %><br />
+  Card Number: <%= form.text_field :cardnumber %><br />
+  Name On Card: <%= form.text_field :namecard %><br />
+  Expiration Date:<%= form.date_field :expirationdate %><br />
+  CVV:<%= form.text_field :cvv %><br />
+  <%= form.submit %>
+<% end %>

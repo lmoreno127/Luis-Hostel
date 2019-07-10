@@ -1,0 +1,7 @@
+<h1>Show Room</h1>
+Title:<%=@room.title %></br>
+Description:<%=@room.description %></br>
+Price:<%=@room.price %></br>
+<%= link_to 'Edit Room', edit_room_path(@room) %> 
+<%= link_to 'Create Users', new_room_user_path(@room) %> 
+<%= link_to 'Show Users', room_users_path(@room) %> 

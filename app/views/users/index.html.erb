@@ -1,0 +1,10 @@
+<h1>List of Users</h1>
+<ul>
+<%@users.each do |user| %>
+  <li>
+     Name:<%=user.name+" "+user.last_name%>
+     <%= link_to 'Show User', user_path(room),method: :get %>
+     <%= link_to 'Delete User',user_path(room), method: :delete %> 
+  </li>
+<%end%>
+</ul>

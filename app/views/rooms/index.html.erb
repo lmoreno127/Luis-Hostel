@@ -1,0 +1,10 @@
+<h1>List of Rooms</h1>
+<ul>
+<%@rooms.each do |room| %>
+  <li>
+     Title:<%=room.title%>
+     <%= link_to 'Show Room', room_path(room),method: :get %>
+     <%= link_to 'Delete Room',room_path(room), method: :delete %> 
+  </li>
+<%end%>
+</ul>

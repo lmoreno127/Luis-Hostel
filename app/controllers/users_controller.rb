@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-   def new 
+   def new
+    @room=Room.find(params[:room_id])
+    @user=User.new
    end
    def create
-      user = User.create(user_params)
+     @room=Room.find(params[:room_id])
+     user = User.create(user_params)
      user.is_admin = false
      flash[:success] = "Welcome #{user[:name]} to Luis Hostel"
      #redirect_to edit_user 
@@ -14,7 +17,7 @@ class UsersController < ApplicationController
     id = params[:id]
     @user = User.find(id)
    end
-   def delete
+   def destroy
     id = params[:id]
     @user = User.find(id)
     @user.destroy

@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
-    def new 
+    def new
+      @review=Review.new
     end
     def create
       Review.create(review_params)
       flash[:success] = "Review was created successfully"
-      #redirect_to edit_user 
+      #redirect_to edit_review 
     end
     def index
      @reviews = Review.all
@@ -13,7 +14,7 @@ class ReviewsController < ApplicationController
      id = params[:id]
      @review = Review.find(id)
     end
-    def delete
+    def destroy
      id = params[:id]
      @review = Review.find(id)
      @review.destroy
@@ -29,7 +30,7 @@ class ReviewsController < ApplicationController
    end
    def edit
      id = params[:id]
-     @user = Review.find(id)
+     @review = Review.find(id)
    end
    private
    def room_params

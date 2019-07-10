@@ -1,11 +1,12 @@
 class RoomsController < ApplicationController
-    def new 
+    def new
+      @room=Room.new
     end
     def create
-      room = Room.create(room_params)
+      room = Room.create!(room_params)
       room.is_booked = false
       flash[:success] = "Room #{room[:name]} was created successfully"
-      #redirect_to edit_user 
+      redirect_to rooms_path 
     end
     def index
      @rooms = Room.all
@@ -14,23 +15,23 @@ class RoomsController < ApplicationController
      id = params[:id]
      @room = Room.find(id)
     end
-    def delete
+    def destroy
      id = params[:id]
      @room = Room.find(id)
      @room.destroy
      flash[:success] = 'The room was deleted successfully'
-     #redirect_to '/dogs/index'
+     redirect_to rooms_path
     end
     def update
      id = params[:id]
      @room = Room.find(id)
-     @user.update(room_params)
+     @room.update(room_params)
      flash[:success] = 'The room was updated successfully'
-     #redirect_to dog_edit_path(@dog)
+     redirect_to room_path(@room)
    end
    def edit
      id = params[:id]
-     @user = Room.find(id)
+     @room = Room.find(id)
    end
    private
    def room_params

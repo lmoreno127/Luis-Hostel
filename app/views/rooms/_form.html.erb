@@ -1,0 +1,6 @@
+<%= form_for @room do |form| %>
+  Title:<%= form.text_field :title %><br />
+  Description: <%= form.text_field :description %><br />
+  Price: <%= form.text_field :price %><br />
+  <%= form.submit %>
+<% end %>
