@@ -8,7 +8,7 @@ class UsersController < ApplicationController
      user = User.create(user_params)
      user.is_admin = false
      flash[:success] = "Welcome #{user[:name]} to Luis Hostel"
-     #redirect_to edit_user 
+     redirect_to room_path(@room) 
    end
    def index
     @users = User.all
