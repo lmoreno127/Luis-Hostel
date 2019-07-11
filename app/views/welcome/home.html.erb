@@ -1,5 +1,7 @@
 WELCOME TO LUIS HOSTEL
 <ul>
+<% if user_signed_in? && current_user.is_admin %>
 <li><%= link_to 'Create Room', new_room_path %></li>
+<%end%>
 <li><%= link_to 'Show Rooms', rooms_path %></li>
 </ul>

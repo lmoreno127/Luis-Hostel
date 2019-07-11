@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
       @user.update(user_params)
       flash[:success] = "Booking was created successfully"
       @room.update(is_booked:true)
-      redirect_to room_user_booking_path(@room,@user,new_booking) 
+      redirect_to room_user_booking_path(@room,@user,new_booking)
     end
     def index
       @user=current_user
@@ -62,7 +62,4 @@ class BookingsController < ApplicationController
 
 
 end
-# Card Number: <%= f.text_field :cardnumber %><br />
-#   Name On Card: <%= f.text_field :namecard %><br />
-#   Expiration Date:<%= f.date_field :expirationdate %><br />
-#   CVV:<%= f.text_field :cvv %><br />
+

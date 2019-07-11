@@ -1,0 +1,6 @@
+<%= form_for [@room,@user,@review] do |f| %>
+   Title:<%= f.text_field :title %>
+   Stars: <%= f.select(:stars, 5.times.collect {|n| [n+1,n+1]}) %><br />
+   Description:<%= f.text_field :description %>
+   <%= f.submit 'Submit' %>
+<% end %>

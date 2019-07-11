@@ -1,0 +1,10 @@
+<h1>Reviews</h1>
+<ul>
+<%@reviews.each do |review| %>
+  <li>
+     Title:<%=review.title%>
+     <%= link_to 'Show Review', room_user_review_path(@room,current_user,review),method: :get %>
+     <%= link_to 'Delete Review',room_user_review_path(@room,current_user,review), method: :delete %> 
+  </li>
+<%end%>
+</ul>

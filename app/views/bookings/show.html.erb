@@ -4,4 +4,5 @@ Guests:<%=@booking.guests %>
 Check-in:<%=@booking.check_in %>
 Check-Out:<%=@booking.check_out %>
 <%= link_to 'Edit Booking', edit_room_user_booking_path(@booking.room,current_user,@booking) %>
+<%= link_to 'Add Review', new_room_user_review_path(@booking.room,current_user) %>
 <%= link_to 'Cancel Booking', room_user_booking_path(@booking.room,current_user,@booking), method: :delete %>

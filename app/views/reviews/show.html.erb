@@ -1,0 +1,6 @@
+<h1>Show Review</h1>
+Title:<%=@review.title  %>
+Stars:<%=@review.stars  %>
+Description:<%= @review.description %>
+Date:<%=@review.review_date  %>
+<%= link_to 'Edit Review', edit_room_user_review_path(@room,current_user,@review) %>
