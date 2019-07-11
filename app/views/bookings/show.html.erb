@@ -1,0 +1,7 @@
+<h1>Show Booking</h1>
+Room:<%=@booking.room.title %>
+Guests:<%=@booking.guests %>
+Check-in:<%=@booking.check_in %>
+Check-Out:<%=@booking.check_out %>
+<%= link_to 'Edit Booking', edit_room_user_booking_path(@booking.room,current_user,@booking) %>
+<%= link_to 'Cancel Booking', room_user_booking_path(@booking.room,current_user,@booking), method: :delete %>

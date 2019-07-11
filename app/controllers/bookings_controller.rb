@@ -2,7 +2,10 @@ class BookingsController < ApplicationController
     def new
       @user=current_user
       @room=Room.find(params[:room_id])
-      @booking=Booking.new 
+      @booking=Booking.new
+      if @user.cardnumber.nil?
+        redirect_to edit_room_user_path(@room,@user)
+      end 
     end
     def create
       @user=current_user
@@ -17,29 +20,37 @@ class BookingsController < ApplicationController
       redirect_to root_path 
     end
     def index
-     @bookings = Booking.all
+      @user=current_user
+      @room=Room.find(params[:room_id]) 
+      @bookings = Booking.all
     end
     def show
-     id = params[:id]
-     @booking = Review.find(id)
+      @user=current_user
+      @room=Room.find(params[:room_id])
+      id = params[:id]
+      @booking = Booking.find(id)
     end
     def destroy
-     id = params[:id]
-     @booking = Booking.find(id)
-     @booking.destroy
-     flash[:success] = 'Booking was deleted successfully'
-     #redirect_to '/dogs/index'
+      @user=current_user
+      @room=Room.find(params[:room_id]) 
+      id = params[:id]
+      @booking = Booking.find(id)
+      @booking.destroy
+      flash[:success] = 'Booking was deleted successfully'
+      redirect_to room_user_bookings_path(@room,@user)
     end
     def update
+     @user=current_user
+     @room=Room.find(params[:room_id])
      id = params[:id]
      @booking = Booking.find(id)
      @booking.update(booking_params)
-     @booking.booking_id = params[:booking_id]
-
-     flash[:success] = 'booking was updated successfully'
-     #redirect_to dog_edit_path(@dog)
+    flash[:success] = 'booking was updated successfully'
+     redirect_to room_user_booking_path(@room,@user,@booking)
    end
    def edit
+     @user=current_user
+     @room=Room.find(params[:room_id])
      id = params[:id]
      @booking = Booking.find(id)
    end

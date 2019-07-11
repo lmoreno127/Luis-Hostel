@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @user = User.find(id)
     @user.destroy
     flash[:success] = 'Your account was deleted successfully'
-    #redirect_to '/dogs/index'
+    redirect_to room_users_path(@room)
    end
    def update
     @room=Room.find(params[:room_id])
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(id)
     @user.update(user_params)
     flash[:success] = 'your account was updated successfully'
-    #redirect_to dog_edit_path(@dog)
+    redirect_to new_room_user_booking_path(@room,@user)
   end
   def edit
     @room=Room.find(params[:room_id])

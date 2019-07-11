@@ -14,6 +14,9 @@ class RoomsController < ApplicationController
     def show
      id = params[:id]
      @room = Room.find(id)
+     if @room.is_booked && user_signed_in?
+       @booking=@room.find_booking(current_user)
+     end
     end
     def destroy
      id = params[:id]
