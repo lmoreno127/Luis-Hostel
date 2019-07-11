@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(id)
     @user.update(user_params)
     flash[:success] = 'your account was updated successfully'
-    redirect_to new_room_user_booking_path(@room,@user)
+    redirect_to room_user_path(@room,@user)
   end
   def edit
     @room=Room.find(params[:room_id])

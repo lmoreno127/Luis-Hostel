@@ -3,5 +3,12 @@
 
   Check-In <%= f.date_field :check_in %><br />
   Check-Out <%= f.date_field :check_out %><br />
+  <%= fields_for :user do |user_form| %>
+    Card Number: <%= user_form.text_field :cardnumber %><br />
+    Name On Card: <%= user_form.text_field :namecard %><br />
+    Expiration Date:<%= user_form.date_field :expirationdate %><br />
+    CVV:<%= user_form.text_field :cvv %><br />
+  <%end %>
+
   <%= f.submit 'Book' %>
 <% end %>
