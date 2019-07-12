@@ -4,7 +4,9 @@
   <li>
      Title:<%=room.title%>
      <%= link_to 'Show Room', room_path(room),method: :get %>
-     <%= link_to 'Delete Room',room_path(room), method: :delete %> 
+     <% if user_signed_in? && current_user.is_admin %>
+       <%= link_to 'Delete Room',room_path(room), method: :delete %>
+     <%end%> 
   </li>
 <%end%>
 </ul>
