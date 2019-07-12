@@ -4,9 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'solargraph', '~> 0.34.2'
 gem 'rails', '~> 5.2.3'
+gem 'jquery-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
