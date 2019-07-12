@@ -10,6 +10,7 @@ gem 'solargraph', '~> 0.34.2'
 gem 'rails', '~> 5.2.3'
 gem 'jquery-rails'
 # Use sqlite3 as the database for Active Record
+#gem 'pg'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
