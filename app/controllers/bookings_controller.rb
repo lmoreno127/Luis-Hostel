@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+   before_action :authenticate_user!
     def new
       @user=current_user
       @room=Room.find(params[:room_id])

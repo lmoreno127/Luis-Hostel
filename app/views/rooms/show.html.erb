@@ -8,16 +8,12 @@ Max Guests:<%=@room.max_guests %></br>
  <%= link_to 'Show Users', room_users_path(@room) %>
 <%end %>
 <% if  user_signed_in? %>
-    <%= link_to 'Log Out', destroy_user_session_path, method: :delete %> 
-    <% if current_user.bookings.empty? %>  
-      <%= link_to 'Book', new_room_user_booking_path(@room,current_user) %>  
-    <% else %>
+    <% if current_user.bookings.length>0 %>  
      <%= link_to 'Create new Booking',new_room_user_booking_path(@room,current_user)%>
      <%= link_to 'Your bookings', room_user_bookings_path(@room,current_user) %>
      <%= link_to 'View Reviews', room_user_reviews_path(@room,current_user) %>
     <%end%>
-     
 <% else %>
-    <%= link_to 'Sign Up', new_user_registration_path %> 
-    <%= link_to 'Sign In', user_session_path %>
+  <%= link_to 'Book', new_user_session_path%>
 <% end  %>
+ 
