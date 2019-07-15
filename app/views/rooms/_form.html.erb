@@ -3,5 +3,7 @@
   Description: <%= form.text_field :description %><br />
   Price: <%= form.text_field :price %><br />
   Max guests:<%= form.text_field :max_guests %><br />
+  Rooms Photos:<%= form.file_field :image, multiple: true %><br />
+
   <%= form.submit %>
 <% end %>

@@ -38,6 +38,6 @@ class RoomsController < ApplicationController
    end
    private
    def room_params
-     params.require(:room).permit(:title,:description,:price,:max_guests)
+     params.require(:room).permit(:title,:description,:price,:max_guests,{image: []})
    end
 end
