@@ -13,8 +13,8 @@ class BookingsController < ApplicationController
       new_booking.room = @room
       new_booking.save
       @user.update(user_params)
-      flash[:success] = "Booking was created successfully"
       @room.update(is_booked:true)
+      flash[:success] = "Booking was created successfully"
       redirect_to room_user_booking_path(@room,@user,new_booking)
     end
     def index

@@ -12,8 +12,10 @@ Max Guests:<%=@room.max_guests %></br>
      <%= link_to 'Create new Booking',new_room_user_booking_path(@room,current_user)%>
      <%= link_to 'Your bookings', room_user_bookings_path(@room,current_user) %>
      <%= link_to 'View Reviews', room_user_reviews_path(@room,current_user) %>
+    <%else%>
+     <%= link_to 'Book', new_room_user_booking_path(@room,current_user)%>
     <%end%>
-<% else %>
-  <%= link_to 'Book', new_user_session_path%>
-<% end  %>
+<%else%>
+  <%= link_to 'Book', new_user_session_path%>   
+<% end %>
  
